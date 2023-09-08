@@ -9,7 +9,23 @@
   .course-details {
     text-align: center;
     max-width: 800px;
+    margin-left:300px;
+    margin-top:10px;    
+  
+    // Center the video horizontally
+    .video-container {
+      display: flex;
+      justify-content: center;
+    }
+  
+    video {
+      width: 100%; /* Make the video fill the available width */
+      height: auto; /* Maintain aspect ratio */
+      max-height: 80vh; /* Limit the video height to 80% of the viewport height */
+      
+    }
   }
+  
   
   .course-details video {
     width: 100%; /* Make the video fill the available width */

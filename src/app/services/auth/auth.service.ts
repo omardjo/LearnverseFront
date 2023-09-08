@@ -14,7 +14,7 @@ export class AuthService {
   
   login(data: any):Observable<any>{
 
-    return this.http.post(`${this.apiServerUrl}/login/`,data);
+    return this.http.post(`${this.apiServerUrl}/login`,data);
 
   }
 }
