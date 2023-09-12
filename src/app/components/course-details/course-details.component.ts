@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Course } from 'src/app/models/course';
 import { CourseService } from 'src/app/services/course/course.service';
-import { VgApiService } from '@videogular/ngx-videogular/core';
 
 @Component({
   selector: 'app-course-details',
@@ -10,29 +10,29 @@ import { VgApiService } from '@videogular/ngx-videogular/core';
 })
 export class CourseDetailsComponent implements OnInit {
 
-  courseId: any;
-  course: any;
-  videoUrl = "http://localhost:8000/media/videos/light__blackness_logo_reveal.mp4";
-  api?: VgApiService; // Declare as possibly undefined
+  courseId:any;
 
-  constructor(private route: ActivatedRoute, private service: CourseService, private vgApi: VgApiService) { }
+  course: any ; 
+  baseImageUrl = 'http://localhost:8000'; // Replace with your actual base URL
 
-  ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.courseId = params.get('id');
-    });
+  constructor(private router:Router,private route:ActivatedRoute,private service:CourseService) { }
 
-    this.service.getCourseById(this.courseId)
+  ngOnInit(): void { 
+
+    this.route.paramMap.subscribe(params => {  this.courseId = params.get('id'); });
+ 
+  
+      this.service.getCourseById(this.courseId)
       .subscribe({
         next: (result) => {
-          this.course = result;
+          this.course= result;
+          
         }
       });
-  }
+    
 
-  onPlayerReady(api: VgApiService) {
-    this.api = api;
   }
+  
 
 
 

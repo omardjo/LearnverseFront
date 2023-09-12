@@ -1,12 +1,29 @@
-<div class="course-details">
-  <h2>{{ course?.name }}</h2>
-  <p>{{ course?.description }}</p>
 
-  <!-- Display the video URL -->
 
-  <video #media id="singleVideo" preload="auto" crossorigin controls autoplay>
-    <source [src]="videoUrl" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="card" *ngIf="course">
+    <h2>{{ course.name }}</h2>
+        <div class="separator-bar"></div>
 
-</div>
+        <p>{{course.description }}</p>
+        <div class="separator-bar"></div>
+
+        <img class="card-media" [src]="baseImageUrl+course.image_path" alt="Image Alt Text">
+        <div class="separator-bar"></div>
+
+        <br>
+        <video class="card-media" controls>
+            <source [src]= "baseImageUrl+course.video_path" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="separator-bar"></div>
+
+    </div>
+</body>
+</html>
