@@ -13,6 +13,7 @@
             <mat-card-content class="card-body">
                 <p>{{ degree.sub_title }}</p>
                 <button mat-button class="card-button" (click)="navigate()">En Savoir plus</button>
+                <td><button  mat-raised-button color="primary"  routerLink="/ELearning/topic/details/{{degree.id}}">Details</button></td>
             </mat-card-content>
         </mat-card>
     </main>

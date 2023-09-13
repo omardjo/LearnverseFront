@@ -1,1 +1,39 @@
-<p>signup works!</p>
+<div class="login-container">
+    <header class="login-header">
+        <div class="login-header-left">
+            <img alt="logo" src="assets/spiral2.png" style="width:100px;height:100px;">
+            <h2>Learnverse vous aidez à etudier sans obstacles</h2>
+        </div>
+        <div class="login-header-right">
+            <mat-card class="card-container">
+                <mat-card-content>
+                    <h1>Enregistrer</h1>
+                    <form [formGroup]="loginForm" (ngSubmit)="userLogin()">
+                        
+                        <mat-form-field appearance="outline">
+                            <mat-label>Username</mat-label>
+                            <input matInput type="text" placeholder="Username" formControlName="username">
+                            <mat-error *ngIf="loginForm.get('username')?.invalid">{{getErrorMessage1()}}</mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput type="text" placeholder="Email" formControlName="email">
+                            <mat-error *ngIf="loginForm.get('email')?.invalid">{{getErrorMessage3()}}</mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" formControlName="password">
+                            <button mat-icon-button matSuffix (click)="hide = !hide"
+                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                            <mat-error *ngIf="loginForm.get('password')?.invalid">{{getErrorMessage2()}}</mat-error>
+                        </mat-form-field>
+                        <button mat-raised-button color="primary" type="submit">enregistrer</button>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </header>
+</div>
+

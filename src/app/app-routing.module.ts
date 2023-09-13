@@ -10,13 +10,20 @@ import { TopicsComponent } from './components/topics/topics.component';
 import { DegreesComponent } from './components/degrees/degrees.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 const routes: Routes = [
 
  {
    path:'',
    component:SigninComponent
+   
  },
+ {
+  path:'signup',
+  component:SignupComponent
+  
+},
  
  {path: 'ELearning', component:NavbarComponent,children: [
   {path:'course/details/:id', component:CourseDetailsComponent},

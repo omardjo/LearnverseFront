@@ -24,6 +24,10 @@
                             <mat-error *ngIf="loginForm.get('password')?.invalid">{{getErrorMessage2()}}</mat-error>
                         </mat-form-field>
                         <button mat-raised-button color="primary" type="submit">connexion</button>
+                        <button  mat-raised-button color="primary"  routerLink="/signup">enregistrer</button>
+
+
+                        
                     </form>
                 </mat-card-content>
             </mat-card>
